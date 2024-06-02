@@ -11,7 +11,7 @@ def error_403(request, exception):
 
 # APPEND_SLASH does not work if you do not return status=404
 def error_404(request, exception):
-    return render(request, "errors/404.dtl", status=404)
+    return render(request, 'errors/404.dtl', status=404)
 
 def error_500(request):
     return render(request, "errors/500.dtl", status=500)
