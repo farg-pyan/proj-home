@@ -1,4 +1,5 @@
 # consider putting individual apps into their own repositories
+# django_project_reuse/
 dpa_main_*
 tmp_data/
 

@@ -13,25 +13,35 @@ environ.Env.read_env(BASE_DIR / '..' / 'secrets' / '.env')
 
 RNV = env('RNV', default='prod')
 
-ADMIN_URL = env('DJANGO_ADMIN_URL')
-STATIC_ROOT = env('DJANGO_STATIC_ROOT')
-
 if RNV == 'dev':
     DEBUG = True
     DATABASES = { 'default': env.db_url('DJANGO_DB_URL_DEV',) }
     STATIC_URL = '/static/'  # 'static/'
     ALLOWED_HOSTS = ['127.0.0.1']
+    ENV_NAME = 'Devel (Local)'
+    ADMIN_HEADER_BG = '#089c2f'  # green
 elif RNV == 'prod':
     DEBUG = False  # SECURITY WARNING: don't run with debug turned on in production!
     DATABASES = { 'default': env.db_url('DJANGO_DB_URL',) }
     STATIC_URL = env('DJANGO_STATIC_URL')
     ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
     CSRF_TRUSTED_ORIGINS = env.list('DJANGO_CSRF_TRUSTED_ORIGINS')
+    ENV_NAME = '*** PRODUCTION ***'
+    ADMIN_HEADER_BG = '#961313'  # red
 
 # ------------------------------------------------------------------------------
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('DJANGO_SECRET_KEY')
+
+ADMIN_URL = env('DJANGO_ADMIN_URL')
+
+STATIC_ROOT = env('DJANGO_STATIC_ROOT')
+
+PROJECT_NAME = env('DJANGO_PROJECT_NAME')  # , default = None
+
+# ANA_GA4_ID = env('ANA_GA4_ID', default = None)
+
 
 # Application definition
 
@@ -66,7 +76,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'django_project_templates',
+            BASE_DIR / 'django_project_reuse' / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -75,6 +85,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'django_project_reuse.context.reuse',
             ],
         },
     },
