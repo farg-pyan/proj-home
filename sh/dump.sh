@@ -10,4 +10,4 @@
 --exclude auth \
 --exclude contenttypes \
 --exclude sessions \
---exclude dpa_aux_users
+--exclude dpaa_users
