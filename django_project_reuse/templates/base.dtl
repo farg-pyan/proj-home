@@ -14,14 +14,17 @@
 {% endcomment %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% block title %}{% endblock %} | {{PROJ_NAME}}</title>
+<title>{% block title %}{% endblock %} | {{ PROJECT_NAME|title }}</title>
 
 <style>
+    {% comment "" %}
     body, html, * {
         background: black;
         color: limegreen;
         font-weight: bold;
     }
+    {% endcomment %}
+    {% include 'internal_css/generic.css' %}
 </style>
 
 {% comment "" %}

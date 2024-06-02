@@ -1,0 +1,56 @@
+html {
+    /* warmer; borrowed from Congo */
+    background: #292524;
+
+    /*cooler; borrowed from Tilda Snazzy */
+    /* background: #282835; */
+
+    color: white;
+
+    /* have to keep font size in sync with the admin css, since browser zoom on
+       the same domain will affect both the admin pages and the regular pages */
+    font-size: 16px;
+
+    /* these are the fonts Boostrap uses*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* was orange */
+a {color: limegreen; }
+
+/* was magenta */
+a:visited {color: orange;}
+
+a:hover {
+    /* was background:#e17013; */
+    background:limegreen;
+    color:white;
+}
+
+
+#logout-form {
+    display: inline;
+}
+#logout-form button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+
+    color: orange;
+    font-size: 14px;
+}
+
+/* ========================================================================== */
+
+@media only screen and (min-width: 1200px) {
+
+    div#content {
+        width: 75%;
+    }
+
+}
