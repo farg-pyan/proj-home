@@ -61,13 +61,19 @@ AUTH_USER_MODEL = 'dpa_aux_users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
     # 'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # https://github.com/cobrateam/django-htmlmin
+    'htmlmin.middleware.HtmlMinifyMiddleware',
+    'htmlmin.middleware.MarkRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'django_project.urls_root'
