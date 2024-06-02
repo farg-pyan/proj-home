@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 
-environ.Env.read_env(BASE_DIR / '..' / 'secrets' / '.env')
+environ.Env.read_env(BASE_DIR / '..' / 'secrets' / 'all.env')
 
 RNV = env('RNV', default='prod')
 
@@ -38,9 +38,9 @@ ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 STATIC_ROOT = env('DJANGO_STATIC_ROOT')
 
-PROJECT_NAME = env('DJANGO_PROJECT_NAME')  # , default = None
+PROJECT_NAME = env('DJANGO_PROJECT_NAME')
 
-# ANA_GA4_ID = env('ANA_GA4_ID', default = None)
+GOOGLE_ANALYTICS_ID = env('DJANGO_GOOGLE_ANALYTICS_ID')
 
 
 # Application definition
@@ -53,11 +53,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # custom user model
-    'dpa_aux_users',
+    # django project auxiliary apps
+    'django_project_reuse.dpaa_users',  # custom user model
+
+    # django project main apps
 ]
 
-AUTH_USER_MODEL = 'dpa_aux_users.User'
+AUTH_USER_MODEL = 'dpaa_users.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

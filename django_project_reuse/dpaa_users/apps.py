@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DpaAuxUsersConfig(AppConfig):
+class DPAAUsersConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "dpa_aux_users"
+    name = "django_project_reuse.dpaa_users"

@@ -1,29 +1,26 @@
 {# Jinja opening raw tag would go here if using this as a cookiecutter #}
 {% load static %} {# compress #}
 <!DOCTYPE html><html lang="en-us" dir="ltr" class="dark">  {#  #}
+
 <head>{# https://github.com/cobrateam/django-htmlmin/issues/6 #}
-{% comment "" %}
-    {% if ANA_GA4_ID %}<script async src="https://www.googletagmanager.com/gtag/js?id={{ANA_GA4_ID}}"></script>
+
+{% if GOOGLE_ANALYTICS_ID %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_ID }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', '{{ANA_GA4_ID}}');
-</script>{% endif %}
-{% endcomment %}
+  gtag('config', '{{ GOOGLE_ANALYTICS_ID }}');
+</script>
+{% endif %}
+{% comment "" %}{% endcomment %}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% block title %}{% endblock %} | {{ PROJECT_NAME|title }}</title>
 
 <style>
-    {% comment "" %}
-    body, html, * {
-        background: black;
-        color: limegreen;
-        font-weight: bold;
-    }
-    {% endcomment %}
     {% include 'internal_css/generic.css' %}
 </style>
 
