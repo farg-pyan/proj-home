@@ -1,7 +1,10 @@
-# consider putting individual apps into their own repositories
 # django_project_reuse/
-dpa_main_*
+
+# consider putting individual MAIN apps into their own repositories
+# dpam_*
+
 tmp_data/
+
 
 # ------------------------------------------------------------------------------
 # Python general gitignore template (via GitHub as of June 2024)
