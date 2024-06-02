@@ -1,6 +1,3 @@
-.envrc
-.python-version
-
 # consider putting individual apps into their own repositories
 dpa_main_*
 tmp_data/
