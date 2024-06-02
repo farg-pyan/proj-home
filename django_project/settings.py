@@ -18,12 +18,12 @@ STATIC_ROOT = env('DJANGO_STATIC_ROOT')
 
 if RNV == 'dev':
     DEBUG = True
-    DATABASES = { 'default': env.db_url('DJANGO_DATABASE_URL_DEV',) }
+    DATABASES = { 'default': env.db_url('DJANGO_DB_URL_DEV',) }
     STATIC_URL = '/static/'  # 'static/'
     ALLOWED_HOSTS = ['127.0.0.1']
 elif RNV == 'prod':
     DEBUG = False  # SECURITY WARNING: don't run with debug turned on in production!
-    DATABASES = { 'default': env.db_url('DJANGO_DATABASE_URL',) }
+    DATABASES = { 'default': env.db_url('DJANGO_DB_URL',) }
     STATIC_URL = env('DJANGO_STATIC_URL')
     ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
     CSRF_TRUSTED_ORIGINS = env.list('DJANGO_CSRF_TRUSTED_ORIGINS')
