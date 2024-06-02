@@ -3,6 +3,7 @@
 # consider putting individual MAIN apps into their own repositories
 # dpam_*
 
+**/ignored/
 tmp_data/
 
 
