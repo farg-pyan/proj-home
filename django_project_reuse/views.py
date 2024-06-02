@@ -4,17 +4,17 @@ from django.views.decorators.http import require_GET
 
 
 def error_400(request, exception):
-    return render(request, "errors/400.dtl", status=400)
+    return render(request, 'errors/400.dtl', status=400)
 
 def error_403(request, exception):
-    return render(request, "errors/403.dtl", status=403)
+    return render(request, 'errors/403.dtl', status=403)
 
 # APPEND_SLASH does not work if you do not return status=404
 def error_404(request, exception):
     return render(request, 'errors/404.dtl', status=404)
 
 def error_500(request):
-    return render(request, "errors/500.dtl", status=500)
+    return render(request, 'errors/500.dtl', status=500)
 
 
 # https://adamj.eu/tech/2020/02/10/robots-txt/
@@ -25,4 +25,4 @@ def robots_txt(request):
         "Disallow: /",
         # "Disallow: /some-route/",
     ]
-    return HttpResponse("\n".join(lines), content_type="text/plain")
+    return HttpResponse('\n'.join(lines), content_type='text/plain')

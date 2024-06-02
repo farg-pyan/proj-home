@@ -15,10 +15,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+
 from django.urls import include, path
-# from django.views.generic import TemplateView
+from django.views.generic import TemplateView
+
+# ------------------------------------------------------------------------------
+# still has to be in root URLconf for now
+# https://docs.djangoproject.com/en/5.1/topics/http/urls/#error-handling
+
+from django.conf.urls import handler400, handler403, handler404, handler500
+from django_project_reuse.views import error_400, error_403, error_404, error_500
+
+handler400 = error_400
+handler403 = error_403
+handler404 = error_404  # must return status=404 for APPEND_SLASH to work
+handler500 = error_500
+
+# ------------------------------------------------------------------------------
 
 urlpatterns = [
     path('', include('django_project_reuse.urls')),
-    # path('', TemplateView.as_view(template_name='home.dtl'), name='home'),
+
+    path('', TemplateView.as_view(template_name='home.dtl'), name='home'),
 ]
